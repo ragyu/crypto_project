@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.min.js"></script>
+  <!--  가져가실 때 reset이랑 bootstrap link랑 외부css 가져가시면 됩니다~-->
+    <!--  reset-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--외부 css-->
+    <link rel="stylesheet" href="../assets/css/app.css" />
+    <link rel="stylesheet" href="envelop.css"/>
+    <title>Cipher_Programming</title>
+</head>
+<body>
+  <nav
+      class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-lg sticky-top"
+    >
+      <div class="container">
+        <a href="../index.html" class="navbar-brand align-middle">
+          <h1 class="h3 m-0">C.P</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="../cert/cert.html" class="nav-link"> CERT |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../envelop/envelop.html" class="nav-link"> ENV |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../node/node.html" class="nav-link"> NODE |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../express/express.html" class="nav-link"> EXPRESS |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../login/login_html.html" class="nav-link"> LOGIN |</a>
+              </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--타이틀 바-->
+    <div class="title">
+      <br />
+      <br />
+      <h1 class="welcome-title fw-light">전자봉투 전송</h1>
+      <br />
+      <p>
+        전자봉투 전송은 일반적으로 전자메일(e-mail)을 통해 정보를 송수신하는 과정에 암호화된 
+        <br/>봉투(전자 서명 및 인증서)를 사용하여 정보를 안전하게 전달하는 방식이다.
+      </p>
+    </div>
+    <!--타이틀 바-->
+
+    <section class="env">
+      <form action="#">
+        <div>
+          <h2>전자봉투 전송 시연 :)</h1>
+      
+          <!-- 암호화 할 메시지를 입력받는 부분 -->
+          <div>
+            <label for="message">메시지 입력: </label>
+            <input id="message" type="text">
+            <button onclick="encryptMessage()" class="btn btn-info">암호화</button>
+          </div>
+          
+          <!-- 암호화된 메시지를 보여주는 부분 -->
+          <div>
+            <label for="encryptedMessage">RSA로 암호화된 메시지:</label>
+            <textarea id="encryptedMessage" readonly></textarea>
+          </div>
+          
+          <!-- 복호화된 메시지를 보여주는 부분 -->
+          <div>
+            <label for="decryptedMessage">복호화된 메시지:</label>
+            <textarea id="decryptedMessage" readonly></textarea>
+            <button onclick="decryptMessage()" class="btn btn-info">복호화</button>
+            <button type="reset" class="btn btn-dark">초기화</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="inner clearfix">
+        <h2 class="ft-logo">C.P.</h2>
+        <ul class="address">
+            <li>암호프로그래밍 기말 프로젝트</li>
+            <li class="en">Copyright 2023.</li>
+        </ul>
+        <ul class="list">
+            <li><a href="https://github.com/kdc3246/C.P">팀장 : 김동철</a></li>
+            <li><a href="https://github.com/DoolyDoori">팀원 : 이두리</a></li>
+            <li><a href="#">팀원 : 이라규</a></li>
+            <li><a href="https://github.com/GGWOONG">팀원 : 윤건웅</a></li>
+            <li><a href="../index.html">C.P SITE</a></li>
+        </ul>
+    </div>
+  </footer>
+  <!-- //footer --> 
+
+  <script>
+    let publicKey, privateKey, encryptedMessage;
+
+    window.onload = function() {
+      // 키 페어를 생성
+      forge.pki.rsa.generateKeyPair({bits: 2048, workers: 2}, function(err, keypair) {
+        publicKey = keypair.publicKey;
+        privateKey = keypair.privateKey;
+      });
+    };
+
+    function encryptMessage() {
+      let message = document.getElementById('message').value;
+      
+      // 공개키를 이용해서 메시지를 암호화
+      encryptedMessage = forge.util.encode64(publicKey.encrypt(message, 'RSA-OAEP'));
+      
+      // 암호화된 메시지를 보여줌
+      document.getElementById('encryptedMessage').value = encryptedMessage;
+    }
+
+    function decryptMessage() {
+      try {
+        // 개인키를 이용해서 메시지를 복호화
+        let decryptedMessage = privateKey.decrypt(forge.util.decode64(encryptedMessage), 'RSA-OAEP');
+      
+        // 복호화된 메시지를 보여줌
+        document.getElementById('decryptedMessage').value = decryptedMessage;
+      } catch (e) {
+        // 복호화 실패 시 에러 메시지 출력
+        console.error('Failed to decrypt message. The encrypted message might be invalid:', e);
+      }
+    }
+  </script>
+</body>
+</html>

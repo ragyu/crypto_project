@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  가져가실 때 reset이랑 bootstrap link랑 외부css 가져가시면 됩니다~-->
+    <!--  reset-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--외부 css-->
+    <link rel="stylesheet" href="../assets/css/app.css" />
+    <link rel="stylesheet" href="node.css"/>
+    <title>Cipher_Programming</title>
+
+    
+    <style>
+      /* CSS 코드를 여기에 추가합니다 */
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+  
+      .col-4 {
+        text-align: center;
+        width: 500px;
+      }
+  
+      .col-8 {
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-lg sticky-top"
+    >
+      <div class="container">
+        <a href="../index.html" class="navbar-brand align-middle">
+          <h1 class="h3 m-0">C.P</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="../cert/cert.html" class="nav-link"> CERT |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../envelop/envelop.html" class="nav-link"> ENV |</a>
+              </li>
+              <li class="nav-item">
+                <a href="node.html" class="nav-link"> NODE |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../express/express.html" class="nav-link"> EXPRESS |</a>
+              </li>
+              <li class="nav-item">
+                <a href="../login/login_html.html" class="nav-link"> LOGIN |</a>
+              </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="row">
+      <div class="col-4">
+        <div id="list-example" class="list-group">
+          <a class="list-group-item list-group-item-action" href="#list-item-1">패키치 설치</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-2">지역 설치 / 전역 설치</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-3">package.json과 의존성 관리</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-4">npm 실무에서 배포</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-5">package-lock.json</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-6" data-bs-offset="0">Semantic Versioning(유의적 버전)</a> 
+          <a class="list-group-item list-group-item-action" href="#list-item-7">자주 사용하는 npm 명령어</a> 
+        </div>
+      </div>
+      <div class="col-8">
+        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+          <p>
+            <h4 id="list-item-1" class="h4-spacing">패키지 설치</h4>
+            <br>Node.js에서 사용할 수 있는 모듈인 패키지를 설치할 때에는 npm install 명령어 뒤에 설치할 패키지 이름을 지정한다.
+            <br><br><img src="../assets/images/node1.png" alt="npm install 명령어">
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-2" class="h4-spacing">지역설치 / 전역 설치</h4>
+            <br>npm install 명령어에는 지역(local) 설치와 전역(lobal) 설치 옵션이 있다.
+            <br>옵션을 별도로 지정하지 않으면 지역으로 설치되며, 프로젝트 루트 디렉토리에 node_modules 디렉토리가 자동 생성되고 
+            <br>그 안에 패키지가 설치된다. 지역으로 설치된 패키지는 해당 프로젝트 내에서만 사용할 수 있다.
+            <br><br><img src="../assets/images/node2.png" alt="지역설치">
+            <br>전역에 패키지를 설치하려면 npm install 명령어에 -g옵션을 지정한다.
+            <br>모든 프로젝트가 공통 사용하는 패키지는 지역으로 설치하지 않고 전역에 설치한다.
+            <br><br><img src="../assets/images/node3.png" alt="전역설치">
+            <br>전역에 설치된 패키지는 OS에 따라 설치 장소가 다르다.
+            <br><br><span class="highlighted-green">ⓘ</span> macOS의 경우 /usr/local/lib/node_modules
+            <br><br><span class="highlighted-green">ⓘ</span> 윈동의 경우 c\Users\%USERNAME%\AppData\Roaming\npm\node_modules
+            <br><br>전역으로 모듈을 설치하게 된다면, 설치한 모듈명을 명령어로 사용할 수 있게 된다.
+            <br><br><img src="../assets/images/node4.png" alt="#">
+            <br>다만 전역으로 설치시 package.json에 기록이 안된다는 단점이 있어 협업에서 마이너스로 작용한다.
+            <br>따라서 -D옵션을 통해 devdependencies에 깔고, npx 명령어를 통해 글로벌하게 실행하는 방식을 많이 사용한다.
+            <br><br><img src="../assets/images/node5.png" alt="#">
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-3" class="h4-spacing">package.json과 의존성 관리</h4>
+            <br>Node.js 프로젝트에서는 많은 패키지를 사용하게 되고 패키지의 버전도 빈번하게 업데이트되므로 프로젝트가 의존하고 있는 <span class="highlighted-re">패키지를 일괄 관리할 필요</span>가 있다.
+            <br>npm은 <span class="highlighted-blue">package.json</span> 파일을 통해서 프로젝트 정보와 패키지의 의존성(dependency)을 관리한다.
+            <br>이미 작성된 package.json이 있다면 팀 내에 배포하여 동일한 개발 환경을 빠르게 구축할 수 있는 장점이 있다.
+            <br><br><b style="font-size: 24px;">💡 [ Tip ]</b><br>
+            <br><br>package.json은 Java의 maven에서 pom.xml과 비슷한 역할을 한다.
+            <br>package.json을 생성하려면 프로젝트 루트에서 npm init 명령어를 실행한다.
+            <hr size="3" style="margin: 20px;">
+            <br><br>일단 기본 설정값으로 생성된 package.json 파일을 수정하는 방법이 더 편리할 수 있으므로 <span class="highlighted-green">npm init 명령어에 --yes 또는 -y 옵션</span>을 추가한다.
+            <br>그러면 기본 설정값으로 package.json 파일을 생성한다.
+            <br><br><img src="../assets/images/node6.png" alt="package.json"><br>
+            <div class="container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>name</td>
+                    <td>프로젝트 이름으로, 가장 중요합니다. 중앙 저장소에 배포할 때 version과 함께 필수 항목입니다. url로 사용되고, 설치할 때 디렉토리 이름이 되기 때문에 url이나 디렉터리에서 쓸 수 없는 이름을 사용하면 안 됩니다. 또한, 이름에 node나 js가 들어가면 안 됩니다. name은 214자보다 짧아야 하며, 점(.)이나 밑줄(_)로 시작할 수 없습니다. 대문자를 포함해서는 안 되며, require() 함수의 인수로 사용되며 짧고 알기 쉬운 것으로 짓는 것이 좋습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>프로젝트 버전을 정의합니다. 3단계 버전을 사용하며, - 로 태그 이름을 적을 수 있습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>description</td>
+                    <td>프로젝트 설명으로, 문자열로 기술합니다. npm search로 검색된 리스트에 표시되기 때문에 사람들이 패키지를 찾아내고 이해하는 데 도움이 됩니다.</td>
+                  </tr>
+                  <tr>
+                    <td>keywords</td>
+                    <td>프로젝트를 검색할 때 참조되는 키워드입니다. description과 마찬가지로 npm search로 검색된 리스트에 표시됩니다.</td>
+                  </tr>
+                  <tr>
+                    <td>homepage</td>
+                    <td>프로젝트 홈페이지 주소입니다. url 항목과는 다르며, url을 설정하면 예상치 못한 움직임을 하게 되므로 주의합니다.</td>
+                  </tr>
+                  <tr>
+                    <td>author</td>
+                    <td>프로젝트 작성자 정보로, 한 사람만을 지정합니다. JSON 형식으로 name, email, url 옵션을 포함합니다.</td>
+                  </tr>
+                  <tr>
+                    <td>contributors</td>
+                    <td>프로젝트에 참여한 공헌자 정보로, 여러 사람을 배열로 지정할 수 있습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>repository</td>
+                    <td>프로젝트의 소스 코드를 저장한 저장소의 정보입니다. 소스 코드에 참여하고자 하는 사람들에게 도움이 될 수 있습니다. 프로젝트의 홈페이지 url을 명시해서는 안 됩니다.</td>
+                  </tr>
+                  <tr>
+                    <td>scripts</td>
+                    <td>프로젝트에서 자주 실행해야 하는 명령어를 scripts로 작성해두면 npm 명령어로 실행 가능합니다.</td>
+                  </tr>
+                  <tr>
+                    <td>config</td>
+                    <td>소스 코드에서 config 필드에 있는 값을 환경 변수처럼 사용할 수 있습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>private</td>
+                    <td>이 값을 true로 작성하면 중앙 저장소로 저장하지 않습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>dependencies</td>
+                    <td>서비스를 배포할때 쓰이는 모듈을 관리를 위한 부분입니다. 이 프로젝트가 어떤 확장 모듈을 요구하는지 정리할 수 있습니다. 일반적으로 package.json에서 가장 많은 정보가 입력되는 곳입니다. 애플리케이션을 설치할 때 이 내용을 참조하여 필요한 확장 모듈을 자동으로 설치합니다. 따라서 개발한 애플리케이션이 특정한 확장 모듈을 사용한다면 여기에 꼭 명시를 해주어야 합니다. 또한, npm install 명령은 여기에 포함된 모든 확장 모듈들을 설치하게 되어 있습니다.</td>
+                  </tr>
+                  <tr>
+                    <td>devDependencies</td>
+                    <td>개발할 때만 사용하는 확장 모듈을 관리합니다.</td>
+                  </tr>
+                  <tr>
+                    <td>engine</td>
+                    <td>실행 가능한 노드 버전의 범위를 결정합니다.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>          
+            <br>package.json에서 가장 중요한 항목은 <span class="highlighted-blue">name과 version</span>이다. 이것은 패키지의 고유성을 판단하므로 생략할 수 없다.
+            <br>그리고 <span class="highlighted-blue">dependencies</span> 항목에는 <span class="highlighted-bvi">해당 프로젝트가 의존하는 패키지들의 이름과 버전을 명시</span>한다. 여기서 의존하는 패키지랑 해당 프로젝트에서 참조하는 모듈을 의미한다.
+            <br>프로젝트를 진행할 때는 이미 만들어진 여러 패키지를 참조해서 사용하는데, package.json 파일의 dependencies 항목에 해당 패키지의 이름과 버전을 명시함으로써 의존성을 설정한다.
+            <br><span class="highlighted-blue">devDependencies</span>에는 개발 시에만 사용하는 개발용 의존 패키지를 명시한다.
+            <br>예를 들어 <span class="highlighted-bvi">TypeScript와 같은 트랜스파일러</span>는 개발 단계에서만 필요하고 배포할 필요는 없으므로 devDependencies에 포함시킨다.
+            <br>npm install 명령어에 <span class="highlighted-green">--save-dev(축약형 -D)</span> 옵션을 사용하면 패키지 설치와 함께 <span class="highlighted-bvi">package.json의 devDependencies에 설치된 패키지와 버전이 기록</span>된다.
+            <br><br><img src="../assets/images/node7.png" alt="#">
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-4" class="h4-spacing">npm 실무에서 배포</h4>
+            <br><br><img src="../assets/images/node8.png" alt="npm">
+            <br>node_modules는 용량을 많이 차지하기 때문에 어디 서버에 배포할떄는 지워둔다. (왜냐하면 용량이 많아서 언제 복사하는지...)
+            <br>필요한 파일만 서버에 이동시키고, 그리고 서버 내에서 패키지들을 재설치해서 하는 형식이다.
+            <br><span class="highlighted-">npm install</span> 명령어를 사용하면 <span class="highlighted-blue">package.json에 명시된 모든 의존 패키지를 한번에 설치</span>할 수 있다.
+            <br><br><img src="../assets/images/node9.png" alt="#">
+            <br>다만 인터넷을 폐쇄망으로 이용하는 기업은, 하는 수없이 node_modules를 들고 가야한다.
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-5" class="h4-spacing">package-lock.json</h4>
+            <br><img src="../assets/images/node10.png" alt="#">
+            <br><span class="highlighted-blue">package.json에서 설치한 모듈의 dependencies들</span>을 정확하게 하나하나 명시를 해놓은 것이 package-lock.json이다.
+            <br>버전 문제가 생기는 것 빼고는 잘 안건들인다.
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-6" class="h4-spacing">Semantic Versioning(유의적 버전)</h4>
+            <br>npm install 명령어의 패키명 뒤에 <span class="highlighted-green">@버전</span>을 추가하면 <span class="highlighted-blue">패키지 버전을 지정</span>하여 설치할 수 있다.
+            <br><br><img src="../assets/images/node11.png" alt="#">
+            <br>이때 package.json의 dependencies에 새롭게 추가한 패키지가 추가되고 버전 앞에 <span class="highlighted-green">^(캐럿)</span>이 추가된 것을 확인할 수 있다.
+            <br>이것은 패키지 버전을 지정하였을 때 뿐만이 아니라 <span class="highlighted-green">--save-exact</span> 옵션을 지정하지 않으면 기본적으로 추가되는 것이다.
+            <br>이 <span class="highlighted-green">^(캐럿)</span>은 이후 해당 패키지의 버전이 업데이트되었을 경우, <span class="highlighted-blue">마이너 버전 범위 내에서 업데이트를 허용한다는 의미</span>이다. 
+            <br><span class="highlighted-red">즉, 나는 Major버전만 올리지않고 사용하겠다라는 말이다.</span>
+            <br>npm install 명령어에 --save-exact 옵션을 지정하면 설치된 버전을 범위 지정없이 기록한다.
+            <br><br>버전 정보는 <span class="highlighted-blue">메이저 버전 번호, 마이너 버전 번호, 패치 버전 번호</span>로 구성된다.
+            <br><br><img src="../assets/images/node12.png" alt="#">
+            <br><h4>Major(주 버전), Minor(부 버전), Patch(수 버전)</h4>
+            <br>▣ Major는 <span class="highlighted-red">하위 버전과 호환되지 않은</span> 수정 사항이 생겼을 때 올림
+            <br>▣ Minor는 <span class="highlighted-green">하위 버전과 호환되는</span> 수정 사항이 생겼을 때 올림
+            <br>▣ Patch는 <span class="highlighted-blue">기능에 버그를 해결</span>해결했을 때 올림
+            <br><br>버전 정보 앞에는 기호를 부여하여 업데이트 범위를 지정할 수 있다. 기술 방식은 아래와 같다.
+            <div class="container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>표기법</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version</td>
+                    <td>명시된 version과 일치</td>
+                  </tr>
+                  <tr>
+                    <td>&gt;version</td>
+                    <td>명시된 version보다 높은 버전</td>
+                  </tr>
+                  <tr>
+                    <td>&gt;=version</td>
+                    <td>명시된 version과 같거나 높은 버전</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;version</td>
+                    <td>명시된 version보다 낮은 버전</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;=version</td>
+                    <td>명시된 version과 같거나 낮은 버전</td>
+                  </tr>
+                  <tr>
+                    <td>~version</td>
+                    <td>명시된 version과 근사한 버전</td>
+                  </tr>
+                  <tr>
+                    <td>^version</td>
+                    <td>명시된 version과 호환되는 버전</td>
+                  </tr>
+                  <tr>
+                    <td>@latest</td>
+                    <td>최신 버전을 설치하라는 의미 &gt; npm i express@latest</td>
+                  </tr>
+                  <tr>
+                    <td>@next</td>
+                    <td>실험적인 버전</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>각 버전마다 부가적으로 알파/베타/RC 버전이 존재할 수도 있음(1.1.1-alpha.0, 2.0.0-beta.1, 2.0.0-rc.0)
+            <br><br><span class="highlighted-red">~(틸트)와 ^(캐럿)의 차이는 아래와 같다.</span>
+            <br>~(틸트)는 패치<span class="highlighted-blue">버전 범위 내</span>에서 업데이트한다. :
+            <br>▣ <span class="highlighted-bvi">~0.0.1</span> : 0.0.1 <=version < 0.1.0
+            <br>▣ <span class="highlighted-bvi">~0.1.1</span> : 0.1.1 <=version < 0.2.0
+            <br><br>^(캐럿)는 <span class="highlighted-blue">마이너 버전 범위 내</span>에서 업데이트한다. :
+            <br>▣ <span class="highlighted-bvi">^1.0.2</span> : 1.0.2 <=version < 2.0
+          </p>
+          <hr size="5" style="margin: 20px;">
+          <p>
+            <h4 id="list-item-7" class="h4-spacing">자주 사용하는 npm 명령어</h4>
+            <h3><b>package.json 생성</b></h3>
+            <br><br><img src="../assets/images/node13.png" alt="#">
+            <h3><b>패키지 설치</b></h3>
+            <br><br><img src="../assets/images/node14.png" alt="#">
+            <h3><b>패키지 제거</b></h3>
+            <br><br><img src="../assets/images/node15.png" alt="#">
+            <h3><b>패키지 업데이트</b></h3>
+            <br><br><img src="../assets/images/node16.png" alt="#">
+            <br><br><h3><b>패키지 목록</b></h3>
+            <br>현재 개발 중인 애플리케이션에 설치된 확장 모듈을 확인히려면 터미널에 아래 명령을 입력하면 된다.
+            <br>설치한 모듈이 너무 많아 package-lock.json에서 확인할 수 없을 때 유용히 쓰일 수 있다.
+            <br>아래 스샷처럼 상속을 자세히 나열해서 표시해준다.
+            <br><br><img src="../assets/images/node17.png" alt="#">
+            <br><br><img src="../assets/images/node17_1.png" alt="#">
+            <h3><b>전역 설치 패키지 확인</b></h3>
+            <br><br><img src="../assets/images/node18.png" alt="#">
+            <br><br><h3><b>package.json scripts 프로퍼티의 실행</b></h3>
+            <br><br><img src="../assets/images/node19.png" alt="#">
+            <br><br><img src="../assets/images/node19_1.png" alt="#">
+            <br><br><h3><b>전역 패키지 설치 폴더 확인</b></h3>
+            <br><br><img src="../assets/images/node20.png" alt="#">
+            <br><br><h3><b>패키지 정보 참조</b></h3>
+            <img src="../assets/images/node21.png" alt="#">
+            <br><br><h3><b>npm 명령어 설명 참조</b></h3>
+            <img src="../assets/images/node22.png" alt="#">
+            <br><br><h3><b>해당 패키지 버전 설치</b></h3>
+            <img src="../assets/images/node23.png" alt="#">
+            <br><br><h3><b>패키지 버전 변화 확인</b></h3>
+            <img src="../assets/images/node24.png" alt="#">
+            <img src="../assets/images/node24_1.png" alt="#">
+            <br><br><h3><b>패키지 버전 올림(업데이트)</b></h3>
+            <img src="../assets/images/node25.png" alt="#">
+            <br><br><h3><b>패키지 배포</b></h3>
+            <img src="../assets/images/node26.png" alt="#">
+            <br><br><h3><b>패키지 검색</b></h3>
+            <img src="../assets/images/node27.png" alt="#">
+            <br><br><h3><b>사용자 확인</b></h3>
+            <img src="../assets/images/node28.png" alt="#">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="inner clearfix">
+          <h2 class="ft-logo">C.P.</h2>
+          <ul class="address">
+              <li>암호프로그래밍 기말 프로젝트</li>
+              <li class="en">Copyright 2023.</li>
+          </ul>
+          <ul class="list">
+              <li><a href="https://github.com/kdc3246/C.P">팀장 : 김동철</a></li>
+              <li><a href="https://github.com/DoolyDoori">팀원 : 이두리</a></li>
+              <li><a href="#">팀원 : 이라규</a></li>
+              <li><a href="https://github.com/GGWOONG">팀원 : 윤건웅</a></li>
+              <li><a href="../index.html">C.P SITE</a></li>
+          </ul>
+      </div>
+    </footer>
+    <!-- //footer --> 
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"
+      integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="../Web/assets/js/app.js"></script>
+    <!-- 아래 내용을 기존 JS 코드에 추가합니다. -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        /* 대상 요소를 선택합니다. */
+        const listItems = document.getElementsByClassName('list-group-item');
+      
+        /* 스크롤 감지 이벤트를 적용합니다. */
+        document.querySelector('.scrollspy-example').addEventListener('scroll', function () {
+          const scrollTop = this.scrollTop;
+          for (let i = 0; i < listItems.length; i++) {
+            const currentItem = listItems[i];
+            const targetElement = document.querySelector(currentItem.getAttribute('href'));
+      
+            if (scrollTop >= (targetElement.offsetTop - 50) && scrollTop < (targetElement.offsetTop + targetElement.offsetHeight - 50)) {
+              currentItem.classList.add('active');
+            } else {
+              currentItem.classList.remove('active');
+            }
+          }
+        });
+      });
+      </script>
+  </body>
+</html>

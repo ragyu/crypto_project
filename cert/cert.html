@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  reset-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--외부 css-->
+    <link rel="stylesheet" href="../assets/css/app.css" />
+    <link rel="stylesheet" href="cert.css" />
+
+    <title>Cert</title>
+  </head>
+
+  <body>
+    <!--네이게이션 바-->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-lg sticky-top"
+    >
+      <div class="container">
+        <a href="../index.html" class="navbar-brand align-middle">
+          <h1 class="h3 m-0">C.P</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="../cert/cert.html" class="nav-link"> CERT |</a>
+            </li>
+            <li class="nav-item">
+              <a href="../envelop/envelop.html" class="nav-link"> ENV |</a>
+            </li>
+            <li class="nav-item">
+              <a href="../node/node.html" class="nav-link"> NODE |</a>
+            </li>
+            <li class="nav-item">
+              <a href="../express/express.html" class="nav-link"> EXPRESS |</a>
+            </li>
+            <li class="nav-item">
+              <a href="../login/login_html.html" class="nav-link"> LOGIN |</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--네이게이션 바-->
+
+    <section>
+      <!--타이틀 바-->
+      <div class="title">
+        <br />
+        <br />
+        <h1 class="welcome-title fw-light">인증서 발급</h1>
+        <br />
+        <p>
+          인증서란 개인의 공개키와 개인의 인증정보에 대해 인증기관이 서명하여
+          발급하는 문서이다.
+          <br />인증서는 인터넷을 통해 안전하게 정보를 전송할 수 있게 해 준다.
+          <br />웹 브라우저, 메일 및 문자 메시지 교환 앱 등 다양한 곳에서
+          사용된다.
+        </p>
+      </div>
+      <!--타이틀 바-->
+
+      <!--이미지-->
+      <div class="container">
+        <div class="text-center">
+          <img
+            src="../cert/images/cert.png"
+            height="400px"
+            width="450px"
+            alt="인증서의 구조"
+          />
+          <img
+            src="../cert/images/cert2.png"
+            height="400px"
+            width="350px"
+            alt="인증서 이미지"
+          />
+        </div>
+        <!--이미지-->
+        <hr />
+
+        <form>
+          <!-- 인증기관 인증서 -->
+          <div>
+            <h1>인증기관의 키쌍 생성</h1>
+            <br />
+            <table>
+              <tr>
+                <td width="200px">인증기관 키길이</td>
+                <td>
+                  <select id="keyLength_ca" class="custom-select">
+                    <option value="1">1024</option>
+                    <option value="2" selected>2048</option>
+                    <option value="3" disabled>3072</option>
+                    <option value="4" disabled>4196</option>
+                  </select>
+                  &nbsp;
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="ca_Key()"
+                  >
+                    키생성(인증기관)
+                  </button>
+                </td>
+              </tr>
+            </table>
+            <hr />
+            <h1 class="text-center">인증기관 인증서 정보</h1>
+            <br />
+            <table class="table">
+              <tr>
+                <td width="250px" class="color-1">Serial Number (일련번호)</td>
+                <td>
+                  <input
+                    type="number"
+                    id="serialNumber_ca"
+                    value="1"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-2">Common Name (이름)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="commonName_ca"
+                    value="C.P"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-3">Country (국가)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="countryName_ca"
+                    value="KR"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-4">State (광역시도)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="stateOrProvinceName_ca"
+                    value="Gyeonggi-do"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-5">Locality (시군)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="localityName_ca"
+                    value="Goyang-si"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-6">Organization (기관명)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="organizationName_ca"
+                    value="Joongbu Univ."
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-7">
+                  Organization Unit (부서명)
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="organizationalUnitName_ca"
+                    value="Dept. of Information Security"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="reset" class="btn btn-dark">초기화</button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="ca_Cert()"
+                  >
+                    자체인증서 발급
+                  </button>
+                </td>
+              </tr>
+            </table>
+
+            <ul class="toggle-list">
+              <li>
+                <input type="checkbox" class="toggle-input" id="toggle1" />
+                <label class="toggle-label" for="toggle1"
+                  ><h1 class="text-center">발급된 인증기관 인증서</h1></label
+                >
+                <div class="toggle-content">
+                  <h5>인증기관 인증서</h5>
+                  <br />
+                  <textarea id="cert_ca" rows="24" cols="52" readonly>
+                  </textarea
+                  ><br />
+                  <span>인증서 유효성 검증</span>
+                  <input type="text" id="verified_ca" readonly />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- 인증기관 인증서 -->
+          <hr />
+          <!-- 사용자 인증서 -->
+          <div>
+            <h1>사용자의 키쌍 생성</h1>
+            <br />
+            <table>
+              <tr>
+                <td width="200px">사용자 키길이</td>
+                <td>
+                  <select id="keyLength_user" class="custom-select">
+                    <option value="1" selected>1024</option>
+                    <option value="2">2048</option>
+                    <option value="3" disabled>3072</option>
+                    <option value="4" disabled>4196</option>
+                  </select>
+                  &nbsp;
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="user_Key()"
+                  >
+                    키생성(사용자)
+                  </button>
+                </td>
+              </tr>
+            </table>
+            <hr />
+            <h1 class="text-center">사용자 인증서 발급</h1>
+            <br />
+            <table class="table">
+              <tr>
+                <td width="250px" class="color-1">Serial Number (일련번호)</td>
+                <td>
+                  <input
+                    type="number"
+                    id="serialNumber_user"
+                    value="1001"
+                    size="25"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-2">Name (이름)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="commonName_user"
+                    value="이름"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-3">Country (국가)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="countryName_user"
+                    value="대한민국"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-4">State (광역시도)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="stateOrProvinceName_user"
+                    value="경기도"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-5">Locality (시군)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="localityName_user"
+                    value="고양시"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-6">Organization (기관명)</td>
+                <td>
+                  <input
+                    type="text"
+                    id="organizationName_user"
+                    value="중부대학교"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="250px" class="color-7">
+                  Organization Unit (부서명)
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="organizationalUnitName_user"
+                    value="정보보호학과"
+                    size="25"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="reset" class="btn btn-dark">초기화</button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="user_Cert()"
+                  >
+                    사용자인증서 발급
+                  </button>
+                </td>
+              </tr>
+            </table>
+
+            <ul class="toggle-list">
+              <li>
+                <input type="checkbox" class="toggle-input" id="toggle2" />
+                <label class="toggle-label" for="toggle2"
+                  ><h1 class="text-center">발급된 사용자 인증서</h1></label
+                >
+                <div class="toggle-content">
+                  <h5>사용자 인증서</h5>
+                  <br />
+                  <textarea id="cert_user" rows="24" cols="52" readonly>
+                  </textarea
+                  ><br />
+                  <span>인증서 유효성 검증</span>
+                  <input type="text" id="verified_user" readonly />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- 사용자 인증서 -->
+        </form>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="inner clearfix">
+        <h2 class="ft-logo">C.P.</h2>
+        <ul class="address">
+          <li>암호프로그래밍 기말 프로젝트</li>
+          <li class="en">Copyright 2023.</li>
+        </ul>
+        <ul class="list">
+          <li><a href="https://github.com/kdc3246/C.P">팀장 : 김동철</a></li>
+          <li><a href="https://github.com/DoolyDoori">팀원 : 이두리</a></li>
+          <li><a href="#">팀원 : 이라규</a></li>
+          <li><a href="https://github.com/GGWOONG">팀원 : 윤건웅</a></li>
+          <li><a href="../index.html">C.P SITE</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- //footer -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"
+      integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../cert/cert.js"></script>
+  </body>
+</html>

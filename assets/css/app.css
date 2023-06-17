@@ -1,0 +1,211 @@
+/* Global top-79줄*/
+.section-content {
+  padding: 4rem 0;
+}
+
+/* reset */
+a {
+  /* color를 inherit을 줘서 "inherit" 값을 사용하여 상위 요소의 color 속성을 명시적으로 상속받으면, 
+  텍스트 색상을 일관성 있게 유지할 수 있다. */
+  color: inherit;
+  /* 텍스트에 대한 장식을 없애는 속성이다.
+  예) a의 href 링크를 사용할 때 text-decoration: none을 적용하면 링크의 밑줄이 표시되지 않는다. */
+  text-decoration: none;
+}
+
+/* Read more, 소개의 인증서 발급, 전자서명 로그인, 전자봉투 전송, 자기소개의 들어있는 버튼*/
+button,
+input {
+  /* 요소의 적용되는 외곽선을 없애는 속성*/
+  outline: none;
+  /* 요소의 테두리를 없애는 속성*/
+  border: none;
+  /* color 속성을 명시적으로 상속받으면, 텍스트 색상을 일관성 있게 유지하는 속성*/
+  color: inherit;
+}
+
+/* common */
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+body {
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* Top Section */
+#top {
+  position: relative;
+  height: 100vh;
+}
+
+#top .slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#top .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#top .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#top .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#top .divider {
+  width: 10%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 2px solid #fff;
+}
+
+#top .welcome {
+  padding-right: 8rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  #top .welcome {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+#intro .intro-first-card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 12rem;
+  position: relative;
+}
+#intro .col-6:nth-of-type(1) .intro-first-card {
+  /*여기에 맞는 사진을 넣어주세요 - 인증서 발급 img*/
+  background-image: url('../images/bg1.jpg');
+  overflow: hidden;
+}
+#intro .col-6:nth-of-type(2) .intro-first-card {
+  /*여기에 맞는 사진을 넣어주세요 - 전자봉투 전송 img*/
+  background-image: url('../images/bg2.jpg');
+  overflow: hidden;
+}
+
+#intro .col-6:nth-of-type(3) .intro-first-card {
+  /*여기에 맞는 사진을 넣어주세요 - NODE의 모든것 img*/
+  background-image: url('../images/bg3.jpg');
+  overflow: hidden;
+}
+
+#intro .col-6:nth-of-type(4) .intro-first-card {
+  /*여기에 맞는 사진을 넣어주세요 - express img*/
+  background-image: url('../images/bg4.jpg');
+  overflow: hidden;
+}
+
+#intro .intro-first-card .overlay {
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#intro .intro-first-card::before {
+  top: 0;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 100%;
+  background: rgba(255, 131, 66, 0.75);
+  position: absolute;
+  transition: 0.5s;
+}
+#intro .col-6:hover .intro-first-card::before {
+  width: 100%;
+}
+
+#intro .intro-first-card .overlay a {
+  transition: hover 0.4s ease;
+}
+
+#intro .intro-first-card .overlay a:hover {
+  color: #fafa6f;
+}
+#intro .intro-second {
+  position: relative;
+}
+#intro .intro-second .game {
+  margin-left: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0, -50%);
+  opacity: 0;
+  z-index: -100;
+}
+
+/* footer style */
+footer {
+  border-top: 0.5px solid #999;
+  padding: 2% 0;
+  min-height: 150px;
+}
+footer .inner {
+  width: 84%;
+  margin: 0 auto;
+}
+footer .inner .ft-logo {
+  float: left;
+  width: 14%;
+  font-size: 2rem;
+  text-shadow: 0px 3px 4px #3a3c4e;
+}
+footer .inner .address {
+  float: left;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+footer .inner .address li:first-child {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+footer .inner .address li:last-child {
+  color: #999;
+}
+
+footer .inner .list {
+  float: right;
+  margin-top: 18px;
+}
+footer .inner .list li {
+  float: left;
+  margin-left: 80px;
+}
+footer .inner .list li:last-child {
+  font-weight: 700;
+}
+footer .inner .list li a:hover {
+  color: #ff8342;
+  text-decoration: underline;
+}

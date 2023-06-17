@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  가져가실 때 reset이랑 bootstrap link랑 외부css 가져가시면 됩니다~-->
+    <!--  reset-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--외부 css-->
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <title>Cipher_Programming</title>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-lg sticky-top"
+    >
+      <div class="container">
+        <a href="index.html" class="navbar-brand align-middle">
+          <h1 class="h3 m-0">C.P</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="cert/cert.html" class="nav-link"> CERT |</a>
+            </li>
+            <li class="nav-item">
+              <a href="envelop/envelop.html" class="nav-link"> ENV |</a>
+            </li>
+            <li class="nav-item">
+              <a href="node/node.html" class="nav-link"> NODE |</a>
+            </li>
+            <li class="nav-item">
+              <a href="express/express.html" class="nav-link"> EXPRESS |</a>
+            </li>
+            <li class="nav-item">
+              <a href="./login/login_html.html" class="nav-link"> LOGIN |</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- 배경화면 이미지 자동으로 바꾸기 및 텍스트 설정 HTML -->
+    <section id="top" class="slideshow-container">
+      <div class="slide">
+        <img src="./assets/images/bg1.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="./assets/images/bg2.jpg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="./assets/images/bg3.jpg" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="./assets/images/bg4.jpg" alt="Slide 4">
+      </div>
+
+      <div class="overlay d-flex justify-content-center align-items-center">
+        <div class="container-xxl">
+          <div class="row align-items-center">
+            <div class="col-md-9 welcome">
+              <h1 class="welcome-title fw-light">
+                이 사이트는
+                <span class="text-warning fw-bold">암호프로그래밍 정보공유방</span>입니다. 
+                <br>| 인증서 발급 | 전자봉투 전송 | NODE | EXPRESS
+                4가지가 있습니다.
+              </h1>
+              <div class="divider"></div>
+              <div class="row welcome-desc"> 
+                <p class="col-sm-10 col-md-12 lead">
+                  chiper summary <br>| 인증서 발급 : 인터넷 상에서 정보를 안전하게 전송하기 위한 디지털 인증 수단<br>
+                  | 전자봉투 전송 : 전자서명과 로그인 모두 디지털 시대에서 중요한 보안 수단으로 사용<br>
+                  | NODE  : JavaScript를 실행할 수 있는 서버 사이드 플랫폼 <br>
+                  | EXPRESS : Node.js를 위한 웹 애플리케이션 프레임워크
+                </p>
+                <p class="col-sm-2 col-md-12">
+                  <a href="#intro" class="btn btn-primary">Read more</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section id="intro">
+      <div class="section-content">
+        <div class="container intro">
+          <div class="row align-items-center">
+            <div class="col-md-6 intro-first">
+              <div class="row px-md-3">
+                <div class="col-6">
+                  <div
+                    class="card card-body my-3 position-relative rounded-3 shadow-lg intro-first-card first"
+                  >
+                    <div
+                      class="overlay d-flex justify-content-center align-items-center position-absolute h-100 w-100 shadow-lg first"
+                    >
+                      <h3 class="fw-light">
+                        <a
+                          href="cert/cert.html"
+                          class="link-light text-decoration-none"
+                          >인증서 발급</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div
+                    class="card card-body my-3 position-relative rounded-3 shadow-lg intro-first-card"
+                  >
+                    <div
+                      class="overlay d-flex justify-content-center align-items-center position-absolute h-100 w-100 shadow-lg second"
+                    >
+                      <h3 class="fw-light">
+                        <a
+                          href="envelop/envelop.html"
+                          class="link-light text-decoration-none"
+                          >전자봉투 전송</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div
+                    class="card card-body my-3 position-relative rounded-3 shadow-lg intro-first-card"
+                  >
+                    <div
+                      class="overlay d-flex justify-content-center align-items-center position-absolute h-100 w-100 shadow-lg third"
+                    >
+                      <h3 class="fw-light">
+                        <a
+                          href="node/node.html"
+                          class="link-light text-decoration-none"
+                          >NODE</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div
+                    class="card card-body my-3 position-relative rounded-3 shadow-lg intro-first-card"
+                  >
+                    <div
+                      class="overlay d-flex justify-content-center align-items-center position-absolute h-100 w-100 shadow-lg fourth"
+                    >
+                      <h3 class="fw-light">
+                        <a
+                          href="express/express.html"
+                          class="link-light text-decoration-none"
+                          >EXPRESS</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none intro-second">
+              <div class="game game1">
+                <h5 class="fw-light">issuance of a certificate!</h5>
+                <div class="intro-text">
+                  <p class="lead">
+                    <h1 class="mb-4">인증서 발급의 설명<br></h1>
+                    인증 기관이 개인 또는 조직의 신원 정보를 확인하고, 디지털 인증서를 발급하는 과정을 말합니다. 
+                    이 인증서는 공개키 암호화 방식을 사용하여 인증서를 발급한 기관의 신뢰성을 보장하며, 
+                    디지털 서명이나 웹 사이트 보안 등 다양한 온라인 활동에서 사용됩니다. 인증서는 정보의 안전성을 보장하고, 
+                    중간자 공격과 같은 보안 위협으로부터 보호하기 위해 매우 중요한 역할을 합니다.
+                  </p>
+                  <a
+                    class="btn btn-outline-success btn-lg"
+                    href="cert/cert.html"
+                    role="button"
+                    >인증서 발급</a
+                  >
+                </div>
+              </div>
+              <div class="game game2">
+              <h5 class="fw-light">Electronic Envelope Transmission!</h5>
+                <div class="intro-text">
+                  <p class="lead">
+                    <h1 class="mb-4">전자봉투 전송의 설명</h1>
+                    기밀성을 유지해야 하는 문서나 데이터를 안전하게 디지털 환경에서 전송하는 과정입니다. 
+                    이를 위해 정보를 암호화하고 보안 기술을 사용하여 무단 접근과 데이터 유출을 방지합니다. 
+                    전자봉투 전송은 안전하고 신뢰할 수 있는 방식으로 민감한 정보를 전송하고자 할 때 사용됩니다.
+                  </p>
+                  <a
+                    class="btn btn-outline-danger btn-lg"
+                    href="envelop/envelop.html"
+                    role="button"
+                    >전자봉투 전송</a
+                  >
+                </div>
+              </div>
+
+              <div class="game game3">
+                <h5 class="fw-light">Node-Information</h5>
+                <div class="intro-text">
+                  <p class="lead">
+                    <h1 class="mb-4">Node.js의 설명</h1>
+                    Node.js는 Chrome의 V8 JavaSript 엔진을 기반으로 구축되었습니다.
+                    이를 통해 Node.js는 빠른 속도와 높은 성능을 제공합니다. 또한, 이벤트 기반, 비동기식 프로그래밍 모델을 채택하여 많은 동시 연결을 처리할 수 있습니다.
+                  </p>
+                  <a
+                    class="btn btn-outline-primary btn-lg"
+                    href="node/node.html"
+                    role="button"
+                    >Node.js</a
+                  >
+                </div>
+              </div>
+
+              <div class="game game4">
+                <h5 class="fw-light">Express-Information</h5>
+                <div class="intro-text">
+                  <p class="lead">
+                    <h1 class="mb-4">Express의 설명</h1>
+                    Node.js를 위한 웹 애플리케이션 프레임워크입니다.
+                    Express의 핵심기능은 라우팅(Routing), 미들웨어(Middleware), 템플릿 엔진(Template Engine), 정적 파일 서비스(Static FIle Serving)이 있습니다.
+                    다양한 확장 모듈과 라이브러리가 제공되어 Express를 더욱 강력하고 유연하게 활용할 수 있습니다.
+                  </p>
+                  <a
+                    class="btn btn-outline-primary btn-lg"
+                    href="express/express.html"
+                    role="button"
+                    >express</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="inner clearfix">
+          <h2 class="ft-logo">C.P.</h2>
+          <ul class="address">
+              <li>암호프로그래밍 기말 프로젝트</li>
+              <li class="en">Copyright 2023.</li>
+          </ul>
+          <ul class="list">
+              <li><a href="https://github.com/kdc3246/C.P">팀장 : 김동철</a></li>
+              <li><a href="https://github.com/DoolyDoori">팀원 : 이두리</a></li>
+              <li><a href="https://github.com/ragyu/crypto_project.git">팀원 : 이라규</a></li>
+              <li><a href="https://github.com/GGWOONG">팀원 : 윤건웅</a></li>
+              <li><a href="index.html">C.P SITE</a></li>
+          </ul>
+      </div>
+    </footer>
+    <!-- //footer --> 
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"
+      integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/js/app.js"></script>
+
+  </body>
+</html>
